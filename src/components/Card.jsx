@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const Card = ({ card }) => {
   let reviewColor = ''
   switch (card.reviews) {
@@ -33,8 +35,8 @@ const Card = ({ card }) => {
       break
   }
   return (
-    <a
-      href='https://www.instagram.com/'
+    <Link
+      to={`/card/${card.id}`}
       className='flex flex-col text-2xl text-blue-950 bg-amber-50/50 border-2
         hover:border-blue-200/50 rounded-lg size-fit p-4 backdrop-blur-3xl backdrop-opacity-85 border-amber-50/50
         hover:backdrop-opacity-95 w-80 md:w-[19rem] h-96 shadow-neutral-800 shadow-2xl hover:shadow-xl hover:rounded-xl
@@ -49,7 +51,7 @@ const Card = ({ card }) => {
         <div>{card.publisher}</div>
         <div className={reviewColor}>{card.reviews}</div>
       </div>
-    </a>
+    </Link>
   )
 }
 
