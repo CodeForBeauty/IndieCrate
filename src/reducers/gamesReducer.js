@@ -1,5 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import gamesService from "../services/games";
+import { createSlice } from '@reduxjs/toolkit'
+import gamesService from '../services/games'
 
 const gamesReducer = createSlice({
   name: 'games',
@@ -15,7 +15,7 @@ export const { setGames } = gamesReducer.actions
 export default gamesReducer.reducer
 
 export const getGames = () => {
-  return async dispatch => {
+  return async (dispatch) => {
     const data = await gamesService.getAll()
     dispatch(setGames(data))
   }

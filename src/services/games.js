@@ -6,9 +6,7 @@ console.log(supabaseUrl, supabaseKey)
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 const getAll = async () => {
-  const { data, error } = await supabase
-    .from('Indies')
-    .select()
+  const { data, error } = await supabase.from('Indies').select()
   if (error) {
     return []
   }
