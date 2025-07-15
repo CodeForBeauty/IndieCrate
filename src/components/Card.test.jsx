@@ -1,5 +1,7 @@
 import { render, screen, cleanup } from '@testing-library/react'
 import Card from './Card'
+import { reviewColorMap } from './gameUtils'
+import { BrowserRouter } from 'react-router-dom'
 
 describe('<Card>', () => {
   test('card renders correctly', async () => {
@@ -11,7 +13,11 @@ describe('<Card>', () => {
       img: 'imgurl',
     }
 
-    const { container } = render(<Card card={game} />)
+    const { container } = render(
+      <BrowserRouter>
+        <Card card={game} />
+      </BrowserRouter>,
+    )
 
     const name = await screen.findByText(game.name)
     expect(name).toBeDefined()
@@ -35,7 +41,11 @@ describe('<Card>', () => {
       img: 'imgurl',
     }
 
-    render(<Card card={game} />)
+    render(
+      <BrowserRouter>
+        <Card card={game} />
+      </BrowserRouter>,
+    )
 
     const price = await screen.findByText('Free')
     expect(price).toBeDefined()
@@ -50,21 +60,12 @@ describe('<Card>', () => {
       img: 'imgurl',
     }
 
-    const reviewTypes = {
-      'Overwhelmingly Positive': 'text-green-800',
-      'Very Positive': 'text-green-600',
-      'Positive': 'text-blue-800',
-      'Mostly Positive': 'text-blue-600',
-      'Mixed': 'text-yellow-600',
-      'Mostly Negative': 'text-orange-600',
-      'Negative': 'text-orange-800',
-      'Very Negative': 'text-red-800',
-      'Overwhelmingly Negative': 'text-red-900',
-      'gibberish': 'text-yellow-600'
-    }
-
-    for (const [ review, color ] of Object.entries(reviewTypes)) {
-      render(<Card card={ {...game, reviews: review} } />)
+    for (const [review, color] of Object.entries(reviewColorMap)) {
+      render(
+        <BrowserRouter>
+          <Card card={{ ...game, reviews: review }} />
+        </BrowserRouter>,
+      )
       const reviews = await screen.findByText(review)
       expect(reviews).toHaveClass(color)
       cleanup()
