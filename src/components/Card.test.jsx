@@ -28,7 +28,7 @@ describe('<Card>', () => {
     const reviews = await screen.findByText(game.reviews)
     expect(reviews).toBeDefined()
 
-    const img = await container.querySelector('img')
+    const img = container.querySelector('img')
     expect(img).toHaveAttribute('src', game.img)
   })
 

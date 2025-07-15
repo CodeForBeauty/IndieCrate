@@ -5,6 +5,10 @@ const GameView = ({ gameId }) => {
   const game = useSelector(({ games }) =>
     games.find((game) => game.id === gameId),
   )
+
+  if (!game) {
+    return null
+  }
   let reviewColor = getReviewColor(game.reviews)
 
   return (
