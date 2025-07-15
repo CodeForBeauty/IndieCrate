@@ -1,6 +1,6 @@
 import { render, screen, cleanup } from '@testing-library/react'
 import GameView from './GameView'
-import { reviewColorMap } from './gameUtils'
+import { reviewColorMap } from '../utils/gameUtils'
 import { BrowserRouter } from 'react-router-dom'
 import store from '../store'
 import { beforeEach } from 'vitest'

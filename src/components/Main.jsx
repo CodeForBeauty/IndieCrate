@@ -1,8 +1,9 @@
 import CardsList from './CardsList'
 import { useSelector } from 'react-redux'
+import selectFiltered from '../selectors/filterSelector'
 
 const Main = () => {
-  const cards = useSelector(({ games }) => games)
+  const cards = useSelector(selectFiltered)
 
   return (
     <>

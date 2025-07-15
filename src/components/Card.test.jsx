@@ -1,6 +1,6 @@
 import { render, screen, cleanup } from '@testing-library/react'
 import Card from './Card'
-import { reviewColorMap } from './gameUtils'
+import { reviewColorMap } from '../utils/gameUtils'
 import { BrowserRouter } from 'react-router-dom'
 
 describe('<Card>', () => {

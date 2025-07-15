@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { getReviewColor } from './gameUtils'
+import { getReviewColor } from '../utils/gameUtils'
 
 const GameView = ({ gameId }) => {
   const game = useSelector(({ games }) =>

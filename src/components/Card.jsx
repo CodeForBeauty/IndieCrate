@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { getReviewColor } from './gameUtils'
+import { getReviewColor } from '../utils/gameUtils'
 
 const Card = ({ card }) => {
   let reviewColor = getReviewColor(card.reviews)
