@@ -19,16 +19,16 @@ const Header = () => {
 
   return (
     <div
-      className='flex flex-row justify-between items-stretch align-middle bg-amber-900 h-15 
+      className='flex flex-row justify-between align-middle bg-amber-900 h-15 w-full
         text-blue-50 sticky top-0 z-50 shadow-2xl rounded-lg'
     >
       <Link to='/' className='bg-amber-700 hover:bg-amber-800 p-4'>
         main
       </Link>
-      <form onSubmit={handleSubmit} className='flex align-middle'>
+      <form onSubmit={handleSubmit} className='flex align-middle shrink'>
         <input
           name='filter'
-          className='bg-amber-50 mt-2 mb-2 pl-2 pr-2 text-black rounded-l-lg'
+          className='bg-amber-50 mt-2 mb-2 pl-2 pr-2 text-black rounded-l-lg w-20 sm:w-40 lg:w-80'
         />
         <button
           type='submit'
