@@ -13,6 +13,7 @@ export default defineConfig([
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
       'plugin:vitest-globals/recommended',
+      "plugin:tailwindcss/recommended",
     ],
     languageOptions: {
       ecmaVersion: 2020,

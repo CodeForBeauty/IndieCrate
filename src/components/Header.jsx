@@ -1,14 +1,20 @@
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setFilter } from '../reducers/filterReducer'
+import { setDark } from '../reducers/darkReducer'
 
 const Header = () => {
+  const isDark = useSelector(({ dark }) => dark)
   const dispatch = useDispatch()
 
   const handleSubmit = (event) => {
     event.preventDefault()
 
     dispatch(setFilter(event.target.filter.value.toLowerCase()))
+  }
+
+  const handleToggleDark = () => {
+    dispatch(setDark(!isDark))
   }
 
   return (
@@ -31,18 +37,35 @@ const Header = () => {
           search
         </button>
       </form>
-      <Link
-        to='/favorites'
-        className='bg-amber-600 hover:bg-amber-700 w-15 m-2'
-        style={{
-          WebkitMaskImage: "url('/star.png')",
-          WebkitMaskRepeat: 'no-repeat',
-          WebkitMaskSize: 'cover',
-          maskImage: "url('/star.png')",
-          maskRepeat: 'no-repeat',
-          maskSize: 'contain',
-        }}
-      ></Link>
+      <div className='flex flex-row'>
+        <button
+          className={
+            (isDark ? 'bg-white' : 'bg-black') +
+            ' w-15 m-2 hover:opacity-50 cursor-pointer transition-all duration-500'
+          }
+          style={{
+            WebkitMaskImage: "url('/moon.png')",
+            WebkitMaskRepeat: 'no-repeat',
+            WebkitMaskSize: 'cover',
+            maskImage: "url('/moon.png')",
+            maskRepeat: 'no-repeat',
+            maskSize: 'contain',
+          }}
+          onClick={handleToggleDark}
+        ></button>
+        <Link
+          to='/favorites'
+          className='bg-amber-600 hover:bg-amber-700 w-15 m-2'
+          style={{
+            WebkitMaskImage: "url('/star.png')",
+            WebkitMaskRepeat: 'no-repeat',
+            WebkitMaskSize: 'cover',
+            maskImage: "url('/star.png')",
+            maskRepeat: 'no-repeat',
+            maskSize: 'contain',
+          }}
+        ></Link>
+      </div>
     </div>
   )
 }
