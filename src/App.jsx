@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Main from './components/Main'
 import GameView from './components/GameView'
+import FavoritesList from './components/FavoritesList'
 import { Route, Routes, useMatch } from 'react-router-dom'
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='/game/:id' element={<GameView gameId={gameId} />} />
+        <Route path='/favorites' element={<FavoritesList />} />
       </Routes>
       <Footer />
     </div>

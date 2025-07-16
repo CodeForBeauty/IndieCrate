@@ -33,10 +33,16 @@ const Header = () => {
       </form>
       <Link
         to='/favorites'
-        className='bg-amber-700 hover:bg-amber-800 p-4 pr-6'
-      >
-        favorites
-      </Link>
+        className='bg-amber-600 hover:bg-amber-700 w-15 m-2'
+        style={{
+          WebkitMaskImage: "url('/star.png')",
+          WebkitMaskRepeat: 'no-repeat',
+          WebkitMaskSize: 'cover',
+          maskImage: "url('/star.png')",
+          maskRepeat: 'no-repeat',
+          maskSize: 'contain',
+        }}
+      ></Link>
     </div>
   )
 }

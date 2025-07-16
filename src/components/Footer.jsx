@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className='flex flex-col text-blue-50 size-full justify-end'>
+    <div className='flex flex-col text-blue-50 h-max justify-end'>
       <div className='text-center bg-amber-900 p-4'>
         <p>I do not claim to own any of the data provided here.</p>
         <p>

@@ -16,3 +16,31 @@ export const getReviewColor = (reviews) => {
     ? reviewColorMap[reviews]
     : reviewColorMap.gibberish
 }
+
+export const getFavorites = () => {
+  const favoritesJSON = window.localStorage.getItem('favorites')
+  let favorites = []
+  if (favoritesJSON) {
+    favorites = JSON.parse(favoritesJSON)
+  }
+  return favorites
+}
+
+export const getIsFavorite = (game) => {
+  if (!game) {
+    return false
+  }
+  const favorites = getFavorites()
+  return favorites.includes(game.id)
+}
+
+export const addFavorite = (game) => {
+  const favorites = getFavorites()
+  favorites.push(game.id)
+  window.localStorage.setItem('favorites', JSON.stringify(favorites))
+}
+
+export const removeFavorite = (game) => {
+  const favorites = getFavorites()
+  window.localStorage.setItem('favorites', JSON.stringify(favorites.filter(element => game.id !== element)))
+}
